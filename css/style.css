@@ -406,3 +406,11 @@ footer>section{
     color: #fff;
     background-color: #9ac051;
 }
+/*additional-paragraph*/
+.additional-paragraph{
+    display: none;
+}
+.form-info{
+    text-align: center;
+    display: none;
+}
