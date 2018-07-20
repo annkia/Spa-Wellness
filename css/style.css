@@ -236,13 +236,15 @@ nav a:hover{
 }
 .slider-stage{
     width:500px;
+    overflow-x: hidden;
+
 }
 .slider{
     list-style: none;
     width:500px;
     padding: 0;
     display: flex;
-    overflow-x: hidden;
+    position: relative;
 }
 /*Go-up*/
 .go-up{

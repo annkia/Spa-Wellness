@@ -52,5 +52,69 @@ document.addEventListener("DOMContentLoaded", function(){
         
     })
     
+   //slider
+
+    const slider=document.querySelector(".slider");
+    const sliderStage = document.querySelector(".slider-stage");
+    const slides = document.querySelectorAll(".slider li");
+    const prev = document.querySelector(".previous-arrow");
+    const next = document.querySelector(".next-arrow");
+    
+    //funkcja zmieniająca slajdy
+    //skąd ten index? trzeba stworzyć zmienne pobierajace szerokosc
+    
+    const slideWidth=slides[0].clientWidth;
+    let currentIndex=0;
+    
+    //pobierze się lczba elementów, które ma tablica - 1
+    
+    let slidesNumber=slides.length-1;
+    
+    //index tj 0 , 1 , 2 bedzie mnożnikiem do przesuwania zdjecia o 500px w lewo dlatego minus, dodajemy px bo musimy stworzyc regułe css
+    
+    function goToSlide(index){
+
+        if (index<0){
+            index = slidesNumber;
+        } else if (index>slidesNumber) {
+            index=0;
+        }
+        
+        slider.style.left=index*(-slideWidth) + "px";
+        currentIndex=index;
+    }
+    
+    function slideToNext(){
+         goToSlide(currentIndex+1);
+        
+    }
+    
+    function slideToPrev(){
+        goToSlide(currentIndex-1);
+   
+        
+    }
+    prev.addEventListener("click", slideToPrev);
+    next.addEventListener("click", slideToNext);
+    setInterval(slideToNext, 4000);
+    
+    slideToNext();
+   
+    //go-up button
+    
+    const goUpBtn=document.querySelector(".go-up");
+    
+    goUpBtn.addEventListener("click", function(){
+        window.scroll({
+            top:0,
+            left:0,
+            behavior:"smooth"
+        });
+    });
     
  });
+
+
+
+
+
